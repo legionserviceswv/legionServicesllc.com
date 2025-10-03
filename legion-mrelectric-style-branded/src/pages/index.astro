@@ -1,0 +1,27 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import Offers from '../components/Offers.astro';
+import FAQ from '../components/FAQ.astro';
+---
+<BaseLayout pageTitle="Home">
+  <Hero />
+  <section class="section bg-white">
+    <div class="container">
+      <h2 class="text-3xl font-extrabold">Electrical & Allied Services</h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <div class="card"><h3 class="font-bold text-xl">Residential & Light Commercial</h3><ul class="list-disc ml-6 mt-2 text-gray-700 space-y-1"><li>Panels, circuits, lighting</li><li>EV chargers, generators</li><li>Safety inspections</li></ul></div>
+        <div class="card"><h3 class="font-bold text-xl">Industrial & Power</h3><ul class="list-disc ml-6 mt-2 text-gray-700 space-y-1"><li>Power distribution, transformers</li><li>MCCs/switchgear, substation interfaces</li><li>Preventive & corrective maintenance</li></ul></div>
+        <div class="card"><h3 class="font-bold text-xl">Datacom & Low Voltage</h3><ul class="list-disc ml-6 mt-2 text-gray-700 space-y-1"><li>Structured cabling & fiber</li><li>Access control & cameras</li><li>Network infrastructure</li></ul></div>
+        <div class="card"><h3 class="font-bold text-xl">UAS Inspections</h3><p class="text-gray-700 mt-2">Substations, tanks, roofs, and mapping (Part 107).</p></div>
+        <div class="card"><h3 class="font-bold text-xl">Demolition</h3><p class="text-gray-700 mt-2">Selective/structural demo, site clearing & disposal.</p></div>
+        <div class="card"><h3 class="font-bold text-xl">Real Estate Advisory</h3><p class="text-gray-700 mt-2">Commercial, residential, and land transactions.</p></div>
+      </div>
+    </div>
+  </section>
+  <Offers />
+  <FeatureGrid />
+  <FAQ />
+</BaseLayout>

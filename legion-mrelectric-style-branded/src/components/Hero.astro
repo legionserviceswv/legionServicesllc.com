@@ -1,0 +1,21 @@
+
+---
+const { title="Commercial & Industrial Electrical + Datacom", subtitle="Upfront pricing • Safety-first • 24/7 emergency — Charleston–Huntington WV Corridor", cta="Schedule Service", ctaHref="/contact" } = Astro.props;
+---
+<section class="section bg-white">
+  <div class="container grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <span class="badge">Commercial • Industrial • Government</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold mt-4">{title}</h1>
+      <p class="text-lg text-gray-700 mt-4">{subtitle}</p>
+      <div class="mt-6 flex gap-4">
+        <a href={ctaHref} class="btn btn-primary">{cta}</a>
+        <a href="/services" class="btn btn-secondary">View Services</a>
+      </div>
+    </div>
+    <div class="card h-full">
+      <div class="h-56 bg-gray-200 rounded-xl"></div>
+      <p class="text-sm text-gray-600 mt-3">Place your original (unedited) project photo here.</p>
+    </div>
+  </div>
+</section>
