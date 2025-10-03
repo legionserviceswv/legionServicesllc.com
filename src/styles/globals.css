@@ -1,0 +1,10 @@
+
+@tailwind base; @tailwind components; @tailwind utilities;
+.btn{ @apply inline-flex items-center justify-center px-5 py-3 rounded-xl font-semibold transition shadow; }
+.btn-primary{ @apply bg-legionBlue text-white hover:brightness-110; }
+.btn-secondary{ @apply bg-legionGray text-white hover:brightness-110; }
+.card{ @apply bg-white rounded-2xl shadow-smooth p-6; }
+.section{ @apply py-12 md:py-20; }
+.container{ @apply max-w-6xl mx-auto px-4; }
+.badge{ @apply inline-block text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-700; }
+.accordion-btn{ @apply w-full text-left font-semibold py-3; }

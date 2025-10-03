@@ -1,0 +1,65 @@
+
+---
+const { pageTitle } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle ? `${pageTitle} • Legion Services LLC` : "Legion Services LLC"}</title>
+  <meta name="description" content="Commercial • Industrial • Government — Electrical & Contracting; Aviation & Drone Services" />
+  <link rel="icon" href="/assets/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>:root{--brand-blue:#3A6EA5;--brand-gray:#3A3A3A}body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="bg-legionBlue text-white text-sm">
+    <div class="container flex items-center justify-between py-2">
+      <div>24/7 Service • Charleston–Huntington WV Corridor</div>
+      <a class="font-bold underline" href="tel:+13045901434">Call 304-590-1434</a>
+    </div>
+  </div>
+  <header class="bg-white/90 backdrop-blur border-b sticky top-0 z-50">
+    <div class="container h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/assets/logo.png" alt="Legion Services logo" class="h-9 w-9 object-contain" />
+        <span class="font-extrabold tracking-wide">Legion Services LLC</span>
+      </a>
+      <nav class="hidden md:flex gap-6">
+        <a href="/services" class="hover:text-legionBlue">Services</a>
+        <a href="/offers" class="hover:text-legionBlue">Offers</a>
+        <a href="/faq" class="hover:text-legionBlue">FAQ</a>
+        <a href="/contact" class="btn btn-primary">Schedule Service</a>
+      </nav>
+    </div>
+  </header>
+  <main><slot/></main>
+  <footer class="border-t mt-16">
+    <div class="container py-10 grid md:grid-cols-3 gap-8 text-sm text-gray-700">
+      <div>
+        <h4 class="font-bold text-lg mb-2">Legion Services LLC</h4>
+        <p>Commercial • Industrial • Government</p>
+        <p>Charleston–Huntington, WV</p>
+        <p class="mt-2">Tel: <a href="tel:+13045901434" class="underline">304-590-1434</a></p>
+        <p>Email: <a href="mailto:legionserviceswv@gmail.com" class="underline">legionserviceswv@gmail.com</a></p>
+      </div>
+      <div>
+        <h4 class="font-bold text-lg mb-2">Quick Links</h4>
+        <ul class="space-y-1">
+          <li><a href="/services" class="hover:text-legionBlue">Services</a></li>
+          <li><a href="/offers" class="hover:text-legionBlue">Special Offers</a></li>
+          <li><a href="/faq" class="hover:text-legionBlue">FAQ</a></li>
+          <li><a href="/contact" class="hover:text-legionBlue">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-lg mb-2">Service Area</h4>
+        <p>Between Charleston and Huntington, WV</p>
+        <div class="h-28 bg-gray-200 rounded-xl mt-3"></div>
+      </div>
+    </div>
+  </footer>
+  <link rel="stylesheet" href="/src/styles/globals.css" />
+</body>
+</html>

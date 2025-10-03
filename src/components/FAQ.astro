@@ -1,0 +1,23 @@
+
+---
+const items=[
+  {q:"Why are my lights flickering?",a:"Common causes include loose connections, overloaded circuits, or panel issues. We inspect and remediate per NEC."},
+  {q:"Do you offer emergency service?",a:"Yes, call 304-590-1434 for 24/7 scheduling."},
+  {q:"What areas do you serve?",a:"Between Charleston and Huntington, WV."},
+  {q:"Do you handle commercial and industrial work?",a:"Yes—power distribution, MCCs/switchgear, substation interfaces, datacom, and more."}
+];
+function toggle(i){ const el=document.getElementById('faq-'+i); if(el) el.classList.toggle('hidden'); }
+---
+<section class="section bg-gray-50">
+  <div class="container">
+    <h2 class="text-3xl font-extrabold">FAQ</h2>
+    <div class="mt-6 divide-y">
+      {items.map((it,i)=>(
+        <div class="py-3" key={i}>
+          <button class="accordion-btn" onclick={`(${toggle.toString()})(${i})`}>{it.q}</button>
+          <div id={`faq-${i}`} class="hidden pl-1 text-gray-700">{it.a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
