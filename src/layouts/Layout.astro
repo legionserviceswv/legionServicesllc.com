@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+const {
+  title = 'Legion Services LLC',
+  description = 'Veteran-owned electrical, aviation, and real estate services.',
+  active = '',
+  contactPhone = '(304) 590-1434',
+  contactPhoneHref = '+13045901434',
+  contactEmail = 'legionserviceswv@gmail.com'
+} = Astro.props;
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#0759d8" />
+  <title>{title}</title>
+  <link rel="icon" href="/assets/legion-logo.png" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="/" class="brand" aria-label="Legion Services LLC home"><img src="/assets/legion-logo.png" alt="Legion Services LLC" /></a>
+      <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav">
+        <a class={active === 'home' ? 'active' : ''} href="/">Home</a>
+        <a href="/#about">About Us</a>
+        <div class="dropdown">
+          <button type="button">Our Divisions ▾</button>
+          <div class="dropdown-menu">
+            <a class={active === 'electrical' ? 'active' : ''} href="/electrical">Electrical Division</a>
+            <a class={active === 'aerial' ? 'active' : ''} href="/aerial-operations">Aerial Operations</a>
+            <a class={active === 'real-estate' ? 'active' : ''} href="/real-estate">Real Estate Division</a>
+          </div>
+        </div>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="call-button" href={`tel:${contactPhoneHref}`}>☎ {contactPhone}</a>
+    </div>
+  </header>
+  <main><slot /></main>
+  <footer id="contact" class="footer">
+    <div class="wrap footer-grid">
+      <div><img class="footer-logo" src="/assets/legion-logo.png" alt="Legion Services LLC" /><p>Veteran-owned. Mission-driven.<br />Built to serve.</p></div>
+      <div><h3>Quick Links</h3><a href="/">Home</a><a href="/#about">About Us</a><a href="/#divisions">Our Divisions</a></div>
+      <div><h3>Contact</h3><a href={`tel:${contactPhoneHref}`}>{contactPhone}</a><a href={`mailto:${contactEmail}`}>{contactEmail}</a><span>Poca, West Virginia 25159</span></div>
+      <div><h3>Divisions</h3><a href="/electrical">Electrical</a><a href="/aerial-operations">Aerial Operations</a><a href="/real-estate">Real Estate</a></div>
+    </div>
+    <div class="footer-bottom">© {year} Legion Services LLC. All rights reserved.</div>
+  </footer>
+  <script is:inline>
+    const menu = document.querySelector('.menu');
+    const nav = document.querySelector('#nav');
+    menu?.addEventListener('click', () => {
+      const open = menu.getAttribute('aria-expanded') === 'true';
+      menu.setAttribute('aria-expanded', String(!open));
+      nav?.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
