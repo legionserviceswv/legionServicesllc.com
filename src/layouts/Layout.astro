@@ -37,8 +37,20 @@ const year = new Date().getFullYear();
           </div>
         </div>
         <a href="#contact">Contact</a>
+        <div class="mobile-contact-links">
+          <a href={`tel:${contactPhoneHref}`}>Call</a>
+          <a href={`sms:${contactPhoneHref}`}>Text</a>
+          <a href={`mailto:${contactEmail}`}>Email</a>
+        </div>
       </nav>
-      <a class="call-button" href={`tel:${contactPhoneHref}`}>☎ {contactPhone}</a>
+      <div class="header-contact">
+        <button class="call-button contact-trigger" type="button" aria-expanded="false" aria-controls="header-contact-options">Contact ▾</button>
+        <div id="header-contact-options" class="contact-options">
+          <a href={`tel:${contactPhoneHref}`}><span>☎</span><strong>Call</strong><small>{contactPhone}</small></a>
+          <a href={`sms:${contactPhoneHref}`}><span>✉</span><strong>Text</strong><small>{contactPhone}</small></a>
+          <a href={`mailto:${contactEmail}`}><span>@</span><strong>Email</strong><small>{contactEmail}</small></a>
+        </div>
+      </div>
     </div>
   </header>
   <main><slot /></main>
@@ -46,7 +58,7 @@ const year = new Date().getFullYear();
     <div class="wrap footer-grid">
       <div><img class="footer-logo" src="/assets/legion-logo.png" alt="Legion Services LLC" /><p>Veteran-owned. Mission-driven.<br />Built to serve.</p></div>
       <div><h3>Quick Links</h3><a href="/">Home</a><a href="/#about">About Us</a><a href="/#divisions">Our Divisions</a></div>
-      <div><h3>Contact</h3><a href={`tel:${contactPhoneHref}`}>{contactPhone}</a><a href={`mailto:${contactEmail}`}>{contactEmail}</a><span>Poca, West Virginia 25159</span></div>
+      <div><h3>Contact</h3><a href={`tel:${contactPhoneHref}`}>Call: {contactPhone}</a><a href={`sms:${contactPhoneHref}`}>Text: {contactPhone}</a><a href={`mailto:${contactEmail}`}>Email: {contactEmail}</a><span>Poca, West Virginia 25159</span></div>
       <div><h3>Divisions</h3><a href="/electrical">Electrical</a><a href="/aerial-operations">Aerial Operations</a><a href="/real-estate">Real Estate</a></div>
     </div>
     <div class="footer-bottom">© {year} Legion Services LLC. All rights reserved.</div>
@@ -58,6 +70,22 @@ const year = new Date().getFullYear();
       const open = menu.getAttribute('aria-expanded') === 'true';
       menu.setAttribute('aria-expanded', String(!open));
       nav?.classList.toggle('open');
+    });
+
+    const contactTrigger = document.querySelector('.contact-trigger');
+    const contactOptions = document.querySelector('.contact-options');
+    contactTrigger?.addEventListener('click', () => {
+      const open = contactTrigger.getAttribute('aria-expanded') === 'true';
+      contactTrigger.setAttribute('aria-expanded', String(!open));
+      contactOptions?.classList.toggle('open');
+    });
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (!contactTrigger?.contains(target) && !contactOptions?.contains(target)) {
+        contactTrigger?.setAttribute('aria-expanded', 'false');
+        contactOptions?.classList.remove('open');
+      }
     });
   </script>
 </body>

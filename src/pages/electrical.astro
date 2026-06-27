@@ -1,11 +1,105 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const services=[['⚡','Commercial Electrical','Power distribution, lighting, service upgrades, and tenant improvements.'],['▥','Industrial Electrical','Equipment power, controls, facility upgrades, and troubleshooting.'],['★','Government Solutions','Professional support for public-sector and government facilities.'],['🔧','Maintenance & Repairs','Preventive maintenance, diagnostics, repair, and modernization.'],['◷','Emergency Response','Responsive support when critical electrical systems fail.']];
+const services = [
+  ['⚡','Commercial Electrical','Power distribution, lighting, service upgrades, and tenant improvements.'],
+  ['▥','Industrial Electrical','Equipment power, controls, facility upgrades, and troubleshooting.'],
+  ['★','Government Solutions','Professional electrical support for federal, state, and local facilities.'],
+  ['🔧','Maintenance & Repairs','Preventive maintenance, diagnostics, repair, and modernization.'],
+  ['◷','24/7 Emergency Service','Responsive support when critical electrical systems fail.'],
+  ['✓','Code Compliant & Insured','Work performed to applicable code and backed by proper licensing and insurance.']
+];
+const sectors = ['Data Centers','Manufacturing Facilities','Healthcare Buildings','Government Buildings','Warehouses & Distribution'];
 ---
 <Layout active="electrical" title="Electrical Division | Legion Services LLC" description="Commercial, industrial, and government electrical contracting in West Virginia.">
-<section class="page-hero"><div class="wrap page-hero-inner"><div><div class="eyebrow">Legion Services LLC</div><h1>Electrical Division</h1><h2>Powering what matters. Built to perform.</h2><p>Professional electrical contracting for commercial, industrial, and government clients—from routine installations to complex infrastructure, energy systems, maintenance, and emergency response.</p><div class="actions"><a class="btn" href="mailto:legionserviceswv@gmail.com?subject=Electrical%20Service%20Request">Request Service</a><a class="btn outline" href="tel:+13045901434">Call (304) 590-1434</a></div></div><div class="hero-art">⚡</div></div></section>
-<section class="section"><div class="wrap"><div class="section-head"><div class="eyebrow">Our Electrical Services</div><h2>Built for demanding environments.</h2></div><div class="services">{services.map(([i,t,d])=><article class="service"><div class="icon">{i}</div><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
-<section class="section dark-band"><div class="wrap brand-strip"><div><div class="eyebrow">Trusted energy systems</div><h2>Generator and energy installation capability.</h2><p>Legion Services installs and supports Cummins and Generac generator systems and Tesla energy products. Product availability, authorization requirements, permits, and project eligibility are confirmed for each installation.</p><div class="brand-names"><span class="brand-pill">CUMMINS</span><span class="brand-pill">GENERAC</span><span class="brand-pill">TESLA ENERGY</span></div></div><div class="stat-panel"><div class="stat"><b>WV</b>Licensed electrical contractor</div><div class="stat"><b>24/7</b>Emergency response availability</div><div class="stat"><b>3</b>Core client sectors</div><div class="stat"><b>1</b>Accountable team</div></div></div></section>
-<section class="section"><div class="wrap split"><div><div class="eyebrow">Commercial • Industrial • Government</div><h2>Safety, documentation, and execution.</h2><p>Our approach centers on planning, code compliance, quality workmanship, and clear communication from scope review through closeout.</p></div><div class="stat-panel"><div class="stat">Commercial build-outs</div><div class="stat">Industrial facilities</div><div class="stat">Government buildings</div><div class="stat">Generators and backup power</div></div></div></section>
-<section class="contact-band"><div class="wrap"><div><b style="font-size:24px">Need electrical service?</b><br />We are ready to help protect, power, and improve your facility.</div><a class="btn outline" href="mailto:legionserviceswv@gmail.com?subject=Electrical%20Service%20Request">Request Service</a></div></section>
+  <section class="electrical-hero">
+    <div class="wrap electrical-hero-grid">
+      <div class="electrical-hero-copy">
+        <div class="eyebrow">Legion Services LLC</div>
+        <h1>Electrical<br />Division</h1>
+        <h2>Powering what matters.<br />Built to perform.</h2>
+        <p>Legion Services LLC delivers professional electrical contracting for commercial, industrial, and government clients. From routine maintenance to complex infrastructure and emergency systems, we deliver safe, code-compliant, future-ready solutions.</p>
+        <div class="actions electrical-actions">
+          <a class="btn" href="tel:+13045901434">Request Service</a>
+          <a class="btn outline" href="tel:+13045901434">Call</a>
+          <a class="btn outline" href="sms:+13045901434">Text</a>
+          <a class="btn outline" href="mailto:legionserviceswv@gmail.com?subject=Electrical%20Service%20Request">Email</a>
+        </div>
+      </div>
+      <div class="electrical-hero-photo">
+        <img src="/assets/electrical-troubleshooting.webp" alt="Brandon Hickman troubleshooting industrial electrical equipment with a multimeter" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section service-section compact-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Our Electrical Services</div>
+        <h2>Built for demanding environments.</h2>
+      </div>
+      <div class="services services-six">
+        {services.map(([i,t,d]) => <article class="service"><div class="icon">{i}</div><h3>{t}</h3><p>{d}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="installer-band">
+    <div class="wrap installer-grid">
+      <div>
+        <div class="eyebrow">Generator &amp; Energy Systems</div>
+        <h2>Installer for trusted industry brands.</h2>
+        <p>Legion Services installs Cummins and Generac generator systems and Tesla Energy products. Equipment availability, permits, utility requirements, and project eligibility are confirmed for each installation.</p>
+      </div>
+      <div class="installer-brands" aria-label="Generator and energy brands">
+        <div class="installer-brand">CUMMINS<span>Generator Systems</span></div>
+        <div class="installer-brand">GENERAC<span>Backup Power</span></div>
+        <div class="installer-brand tesla-word">TESLA ENERGY<span>Energy Products</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sector-section compact-section">
+    <div class="wrap">
+      <div class="section-head sector-heading">
+        <div class="eyebrow">Commercial • Industrial • Government</div>
+        <h2>Built for the facilities that keep business moving.</h2>
+      </div>
+      <div class="sector-grid">
+        {sectors.map((sector, index) => <div class="sector-card"><span>{['▦','▥','✚','⌂','▤'][index]}</span><b>{sector}</b></div>)}
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section licensing-section compact-section">
+    <div class="wrap licensing-grid">
+      <div>
+        <div class="eyebrow">Licensing &amp; Compliance</div>
+        <h2>Licensed. Insured. Accountable.</h2>
+        <p>Legion Services LLC performs electrical work with a focus on code compliance, documentation, and accountable execution for commercial, industrial, and government clients.</p>
+      </div>
+      <div class="license-cards">
+        <div class="license-card">
+          <span>WV Electrical Contractor License</span>
+          <strong>WV065661</strong>
+        </div>
+        <div class="license-card">
+          <span>WV Master Electrician License</span>
+          <strong>M5004BH1125</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="contact-band">
+    <div class="wrap">
+      <div><b style="font-size:24px">Need electrical service?</b><br />Call, text, or email to discuss your project.</div>
+      <div class="actions contact-actions">
+        <a class="btn outline" href="tel:+13045901434">Call</a>
+        <a class="btn outline" href="sms:+13045901434">Text</a>
+        <a class="btn outline" href="mailto:legionserviceswv@gmail.com?subject=Electrical%20Service%20Request">Email</a>
+      </div>
+    </div>
+  </section>
 </Layout>

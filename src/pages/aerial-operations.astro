@@ -1,11 +1,122 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const services=[['✈','Aircraft Brokerage','Buyer and seller representation for aircraft transactions.'],['↔','Flight Brokering','Private charter sourcing through properly certificated operators.'],['⌕','Aircraft Sourcing','Market research and targeted domestic or international aircraft searches.'],['☑','Acquisition Support','Evaluation coordination, negotiation support, and transaction management.'],['◎','Aviation Consulting','Practical guidance for aircraft ownership and mission requirements.']];
+const aircraftServices = [
+  ['✈','Aircraft Sales','Market exposure and transaction support for aircraft owners and buyers.'],
+  ['👥','Buyer Representation','Targeted aircraft searches and support evaluating available options.'],
+  ['🤝','Seller Representation','Professional marketing, inquiry management, and negotiation support.'],
+  ['◎','Acquisition Assistance','Coordination of due diligence, inspections, documentation, and closing steps.'],
+  ['◉','Aviation Consulting','Practical market insight and mission-focused aircraft guidance.']
+];
+const flightServices = [
+  ['✈','Private Flight Coordination','Private flight options sourced around your mission, schedule, and passenger needs.'],
+  ['◎','Flight Brokering','Access to independent FAA-certificated operators and available aircraft.'],
+  ['▣','Scheduling','Itinerary coordination and real-time trip management support.'],
+  ['▰','Travel Assistance','Coordination support for ground transportation, catering, and related trip details.'],
+  ['✓','Safety & Confidentiality','Operator credentials, availability, and trip details confirmed for each request.']
+];
+const trustItems = [
+  ['✓','Safety First','Operator credentials and trip requirements are reviewed for each request.'],
+  ['▣','Total Privacy','Discreet service and confidential communication.'],
+  ['◎','Global Access','A broad network of aircraft, operators, and aviation contacts.'],
+  ['◯','Dedicated Support','One point of contact from initial request through completion.'],
+  ['◈','Results Driven','Focused on the right solution for your mission.']
+];
 ---
-<Layout active="aerial" title="Aerial Operations | Legion Services LLC" description="Flight brokering, aircraft brokerage, sourcing, and aviation transaction support.">
-<section class="page-hero"><div class="wrap page-hero-inner"><div><div class="eyebrow">Legion Services LLC</div><h1>Aerial Operations</h1><h2>Professional aircraft brokerage. Personal service.</h2><p>We help clients source private flights, buy or sell aircraft, evaluate opportunities, and navigate aviation transactions with discretion and clear communication.</p><div class="actions"><a class="btn" href="mailto:legionserviceswv@gmail.com?subject=Aerial%20Operations%20Inquiry">Discuss Your Needs</a><a class="btn outline" href="tel:+13045901434">Call (304) 590-1434</a></div></div><div class="hero-art">✈</div></div></section>
-<section class="section"><div class="wrap"><div class="section-head"><div class="eyebrow">Aviation Services</div><h2>Access, guidance, and transaction support.</h2></div><div class="services">{services.map(([i,t,d])=><article class="service"><div class="icon">{i}</div><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
-<section class="section dark-band"><div class="wrap split"><div><div class="eyebrow">Experience. Discretion. Results.</div><h2>Mission-first aviation support.</h2><p>Every aviation request is different. We begin with your mission, timing, passenger needs, budget, and operating priorities, then help identify practical solutions.</p></div><div class="stat-panel"><div class="stat">Aircraft buyer representation</div><div class="stat">Aircraft seller representation</div><div class="stat">Private flight sourcing</div><div class="stat">Acquisition coordination</div></div></div></section>
-<section class="section"><div class="wrap split"><div class="hero-art" style="min-height:330px">◈</div><div><div class="eyebrow">Important Charter Disclosure</div><h2>Flights arranged through qualified operators.</h2><p>Legion Services LLC does not operate aircraft as an air carrier. When assisting with private charter, transportation is provided by independent FAA-certificated direct air carriers that retain operational control of the flight.</p><div class="notice">Aircraft availability, operator approval, pricing, and itinerary are subject to confirmation. Brokerage and consulting services do not replace independent legal, tax, maintenance, or pre-purchase inspection advice.</div></div></div></section>
-<section class="contact-band"><div class="wrap"><div><b style="font-size:24px">Ready to elevate your journey?</b><br />Speak with us about flight sourcing or an aircraft transaction.</div><a class="btn outline" href="mailto:legionserviceswv@gmail.com?subject=Aerial%20Operations%20Inquiry">Contact Us</a></div></section>
+<Layout active="aerial" title="Aerial Operations | Legion Services LLC" description="Aircraft brokerage, buyer and seller representation, and private flight brokering through qualified operators.">
+  <section class="aviation-intro">
+    <div class="wrap aviation-intro-inner">
+      <div class="aviation-wings" aria-hidden="true">≪</div>
+      <div>
+        <div class="eyebrow">Legion Services LLC</div>
+        <h1>Aerial Operations Division</h1>
+        <h2>Experience. Discretion. Results.</h2>
+        <p>Professional aircraft brokerage and private flight coordination delivered with responsive service, clear communication, and confidentiality.</p>
+      </div>
+      <div class="aviation-wings" aria-hidden="true">≫</div>
+    </div>
+  </section>
+
+  <section class="aviation-dual" aria-label="Aircraft brokerage and flight brokering services">
+    <article class="aviation-column aircraft-column">
+      <div class="aviation-photo" style="background-image:url('/assets/aircraft-brokering.webp')">
+        <div class="aviation-photo-overlay"></div>
+        <div class="aviation-column-title">
+          <h2>Aircraft Brokering</h2>
+          <p>Find. Negotiate. Acquire.<br />We represent your interests.</p>
+        </div>
+      </div>
+      <div class="aviation-service-list">
+        {aircraftServices.map(([i,t,d]) => <div class="aviation-service-item"><span>{i}</span><div><h3>{t}</h3><p>{d}</p></div></div>)}
+        <a class="btn" href="mailto:legionserviceswv@gmail.com?subject=Aircraft%20Brokerage%20Inquiry">Discuss Aircraft Needs</a>
+      </div>
+    </article>
+
+    <article class="aviation-column flight-column">
+      <div class="aviation-photo" style="background-image:url('/assets/flight-brokering.webp')">
+        <div class="aviation-photo-overlay"></div>
+        <div class="aviation-column-title">
+          <h2>Flight Brokering</h2>
+          <p>Fly on your schedule.<br />We handle the details.</p>
+        </div>
+      </div>
+      <div class="aviation-service-list">
+        {flightServices.map(([i,t,d]) => <div class="aviation-service-item"><span>{i}</span><div><h3>{t}</h3><p>{d}</p></div></div>)}
+        <a class="btn" href="mailto:legionserviceswv@gmail.com?subject=Private%20Flight%20Request">Request Flight Services</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="aviation-trust">
+    <div class="wrap aviation-trust-grid">
+      {trustItems.map(([i,t,d]) => <div class="aviation-trust-item"><span>{i}</span><b>{t}</b><p>{d}</p></div>)}
+    </div>
+  </section>
+
+
+  <section class="section aviation-bio-section compact-section">
+    <div class="wrap aviation-bio-grid">
+      <img src="/assets/brandon-aviation.png" alt="Brandon J. F. Hickman" />
+      <div>
+        <div class="eyebrow">Your Aviation Point of Contact</div>
+        <h2>Brandon J. F. Hickman</h2>
+        <p>Legion Services LLC provides responsive support for aircraft brokerage and private flight coordination with a mission-first approach, practical communication, and discretion throughout the process.</p>
+        <div class="aviation-bio-highlights">
+          <span>Aircraft brokerage</span>
+          <span>Flight brokering support</span>
+          <span>Mission-focused coordination</span>
+          <span>Responsive communication</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="tel:+13045901434">Call</a>
+          <a class="btn outline" href="sms:+13045901434">Text</a>
+          <a class="btn outline" href="mailto:legionserviceswv@gmail.com?subject=Aerial%20Operations%20Inquiry">Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section aviation-disclosure-section compact-section">
+    <div class="wrap aviation-disclosure-grid">
+      <div>
+        <div class="eyebrow">Important Flight Brokerage Disclosure</div>
+        <h2>Transportation is provided by independent operators.</h2>
+      </div>
+      <div>
+        <p>Legion Services LLC does not operate aircraft as an air carrier and does not exercise operational control over charter flights. When assisting with private flight arrangements, transportation is provided by independent FAA-certificated direct air carriers that retain operational control of the flight.</p>
+        <div class="notice">Aircraft availability, operator acceptance, pricing, routing, and itinerary are subject to confirmation. Aircraft brokerage and consulting services do not replace independent legal, tax, maintenance, appraisal, or pre-purchase inspection advice.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-band aviation-contact-band">
+    <div class="wrap">
+      <div><b style="font-size:24px">Ready to discuss your aviation needs?</b><br />Call, text, or email for a confidential conversation.</div>
+      <div class="actions contact-actions">
+        <a class="btn outline" href="tel:+13045901434">Call</a>
+        <a class="btn outline" href="sms:+13045901434">Text</a>
+        <a class="btn outline" href="mailto:legionserviceswv@gmail.com?subject=Aerial%20Operations%20Inquiry">Email</a>
+      </div>
+    </div>
+  </section>
 </Layout>

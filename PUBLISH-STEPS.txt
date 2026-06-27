@@ -1,0 +1,21 @@
+LEGION SERVICES WEBSITE UPDATE
+
+1. Open the GitHub repository connected to Cloudflare Pages.
+2. Upload/replace these items at the repository root:
+   - src
+   - public
+   - package.json
+   - package-lock.json
+   - astro.config.mjs
+3. Do NOT place them inside an extra folder.
+4. Confirm there is no old postcss.config.cjs or Tailwind config file in the repository.
+5. Commit to main. Suggested message:
+   Update Electrical and Aerial Operations division pages
+6. Cloudflare Pages will rebuild automatically.
+7. Build settings:
+   Build command: npm run build
+   Output directory: dist
+
+This package was validated with a successful Astro production build.
+
+8. The Electrical page now includes WV Master Electrician License #: M5004BH1125.
